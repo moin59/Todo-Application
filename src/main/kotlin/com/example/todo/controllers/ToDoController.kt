@@ -31,4 +31,15 @@ class ToDoController(val todoRepository: ToDoRepository) {
 
         return todoRepository.save(todo)
     }
+
+    @DeleteMapping("/{id}")
+    fun deleteTodoById(@PathVariable id: Long) {
+        val oldTodo = todoRepository.findById(id)
+
+        if (oldTodo.isPresent) {
+            todoRepository.deleteById(id)
+        }else{
+            println("Todo not found with id: $id")
+        }
+    }
 }
