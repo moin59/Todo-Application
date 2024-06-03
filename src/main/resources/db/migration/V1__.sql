@@ -1,0 +1,9 @@
+CREATE SEQUENCE IF NOT EXISTS todo_seq START WITH 1 INCREMENT BY 50;
+
+CREATE TABLE todo
+(
+    id        BIGINT NOT NULL,
+    title     VARCHAR(255),
+    completed BOOLEAN,
+    CONSTRAINT pk_todo PRIMARY KEY (id)
+);
